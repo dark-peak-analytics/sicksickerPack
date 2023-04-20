@@ -33,9 +33,7 @@ define_t_matrix <- function(p_HD = 0.005,
       .y = c(p_HD, p_HS1, p_S1H, p_S1S2),
       .f = function(.x, .y) {
         if(.y <= 0 | .y >= 1) {
-          glue::glue(
-            "Acceptable values for {.x} should be between 0 and 1."
-          )
+          paste0("Acceptable values for ", .x, " should be between 0 and 1.")
         } else {
           NA
         }
