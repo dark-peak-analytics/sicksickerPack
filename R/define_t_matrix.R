@@ -26,6 +26,7 @@ define_t_matrix <- function(p_HD = 0.005,
                             hr_S1 = 3,
                             hr_S2 = 10) {
   ## Inputs' sanity checks:
+
   if(any(c(p_HD, p_HS1, p_S1H, p_S1S2) <= 0,
          c(p_HD, p_HS1, p_S1H, p_S1S2) >= 1)) {
     messages <- purrr::map2_chr(
