@@ -26,6 +26,10 @@ define_t_matrix(
 
 \item{hr_S2}{Numeric, hazard ratio of death in sicker vs healthy.}
 }
+\value{
+A 4x4 matrix containing the transition probabilities between the Sick
+-Sicker states.
+}
 \description{
 Define the transition matrix of the Sick-Sicker State-Transition
 Model (SS-STM).

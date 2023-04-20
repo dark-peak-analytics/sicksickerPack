@@ -10,7 +10,8 @@
 #' @param hr_S1 Numeric, hazard ratio of death in sick vs healthy.
 #' @param hr_S2 Numeric, hazard ratio of death in sicker vs healthy.
 #'
-#' @return
+#' @return A 4x4 matrix containing the transition probabilities between the Sick
+#' -Sicker states.
 #' @export
 #'
 #' @examples
