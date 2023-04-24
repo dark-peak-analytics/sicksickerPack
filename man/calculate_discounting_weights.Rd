@@ -4,13 +4,18 @@
 \alias{calculate_discounting_weights}
 \title{Calculate discounting weights}
 \usage{
-calculate_discounting_weights(d_r = 0.035, n_t, first = FALSE)
+calculate_discounting_weights(
+  discount_rate = 0.035,
+  time_horizon,
+  first = FALSE
+)
 }
 \arguments{
-\item{d_r}{Numeric, the rate used to estimate the discounting weights.}
+\item{discount_rate}{Numeric, the rate used to estimate the discounting
+weights.}
 
-\item{n_t}{Numeric, time horizon, number of cycles for which the discounting
-weights are to be calculated.}
+\item{time_horizon}{Numeric, time horizon, number of cycles for which the
+discounting weights are to be calculated.}
 
 \item{first}{Logical, for whether to start discounting from the first cycle.
 Default is FALSE, where the discounting weight corresponding to the first
