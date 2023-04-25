@@ -1,18 +1,39 @@
 # sicksickerPack
 
-Empty description for development ...
-
-## Example Project folder structure
+## Project folder structure
 
 ```
 .
-├── Course script         # Main script, RMD, shiny
-├── Exercises             # Exercises 1-9 + RMD
-|   └── solutions         # Solutions for all exercises
-├── Extra code            # Matrix multiplication
-├── data                  # training data set
-├── output                # sample analysis output
-├── .gitignore            # you can ignore this file
-├── README.md             
-└── R_for_healthecon_course.Rproj
+├── .gitignore            # Names of files to be ignored by Git
+├── .Rbuildignore         # Names of files to be ignored by R-CMD
+├── DESCRIPTION           # Package description file
+├── LICENSE               # License file
+├── LICENSE.md            # License description file
+├── man                   # Functions' documentation
+|   ├── testtaht.R 
+|   ├── testtaht.R 
+|   ├── testtaht.R  
+|   ├── testtaht.R 
+|   ├── testtaht.R 
+|   └── testtaht.R
+├── NAMESPACE            
+├── R                     # Functions' definitions
+|   ├── calculate_costs.R
+|   ├── calculate_discounting_weights.R 
+|   ├── calculate_QALYs.R 
+|   ├── create_Markov_trace.R 
+|   ├── define_transition_matrix.R  
+|   └── run_sickSicker_model.R
+├── README.md  
+├── sicksickerPack.Rproj 
+└── tests                 # Functions' tests
+    ├── testtaht.R        # testthat setup script    
+    └── testthat          # testthat tests' scripts
+        ├── test-calculate_costs.R
+        ├── test-calculate_discounting_weights.R
+        ├── test-calculate_QALYs.R
+        ├── test-create_Markov_trace.R
+        ├── test-define_transition_matrix.R
+        └── test-run_sickSicker_model.R
+
 ```
