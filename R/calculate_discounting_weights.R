@@ -4,11 +4,11 @@
 #' model time-horizon. Discounting could be employed starting from the initial
 #' cycle.
 #'
-#' @param discount_rate Numeric, the rate used to estimate the discounting
+#' @param discount_rate_ Numeric, the rate used to estimate the discounting
 #' weights.
-#' @param time_horizon Numeric, time horizon, number of cycles for which the
+#' @param time_horizon_ Numeric, time horizon, number of cycles for which the
 #' discounting weights are to be calculated.
-#' @param first_cycle Logical, for whether to start discounting from the first
+#' @param first_cycle_ Logical, for whether to start discounting from the first
 #' cycle. Default is FALSE, where the discounting weight corresponding to the
 #' first cycle is equal to one.
 #'
