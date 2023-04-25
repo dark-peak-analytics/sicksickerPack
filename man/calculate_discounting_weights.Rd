@@ -7,7 +7,7 @@
 calculate_discounting_weights(
   discount_rate = 0.035,
   time_horizon,
-  first = FALSE
+  first_cycle = FALSE
 )
 }
 \arguments{
@@ -17,18 +17,25 @@ weights.}
 \item{time_horizon}{Numeric, time horizon, number of cycles for which the
 discounting weights are to be calculated.}
 
-\item{first}{Logical, for whether to start discounting from the first cycle.
-Default is FALSE, where the discounting weight corresponding to the first
-cycle is equal to one.}
+\item{first_cycle}{Logical, for whether to start discounting from the first
+cycle. Default is FALSE, where the discounting weight corresponding to the
+first cycle is equal to one.}
 }
 \value{
 A numeric vector containing the discounting weights for
 }
 \description{
-Calculate discounting weights
+Calculate the discounting weights that correspond to a defined
+model time-horizon. Discounting could be employed starting from the initial
+cycle.
 }
 \examples{
 \dontrun{
 library("sicksickerPack")
+calculate_discounting_weights(
+  discount_rate = 0.035,
+  time_horizon = 1,
+  first_cycle = FALSE
+)
 }
 }

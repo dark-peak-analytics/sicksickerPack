@@ -9,7 +9,7 @@ test_that(desc = "discounting weights calculated correctly", {
   output2 <- calculate_discounting_weights(time_horizon = 2)
   output3 <- calculate_discounting_weights(
     time_horizon = 1,
-    first = TRUE
+    first_cycle = TRUE
   )
 
   ## Run tests:
