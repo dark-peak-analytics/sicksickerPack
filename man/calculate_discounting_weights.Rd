@@ -5,19 +5,19 @@
 \title{Calculate discounting weights}
 \usage{
 calculate_discounting_weights(
-  discount_rate = 0.035,
-  time_horizon,
-  first_cycle = FALSE
+  discount_rate_ = 0.035,
+  time_horizon_,
+  first_cycle_ = FALSE
 )
 }
 \arguments{
-\item{discount_rate}{Numeric, the rate used to estimate the discounting
+\item{discount_rate_}{Numeric, the rate used to estimate the discounting
 weights.}
 
-\item{time_horizon}{Numeric, time horizon, number of cycles for which the
+\item{time_horizon_}{Numeric, time horizon, number of cycles for which the
 discounting weights are to be calculated.}
 
-\item{first_cycle}{Logical, for whether to start discounting from the first
+\item{first_cycle_}{Logical, for whether to start discounting from the first
 cycle. Default is FALSE, where the discounting weight corresponding to the
 first cycle is equal to one.}
 }
@@ -33,9 +33,9 @@ cycle.
 \dontrun{
 library("sicksickerPack")
 calculate_discounting_weights(
-  discount_rate = 0.035,
-  time_horizon = 1,
-  first_cycle = FALSE
+  discount_rate_ = 0.035,
+  time_horizon_ = 1,
+  first_cycle_ = FALSE
 )
 }
 }

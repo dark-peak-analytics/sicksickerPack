@@ -19,26 +19,26 @@
 #' \dontrun{
 #' library("sicksickerPack")
 #' calculate_discounting_weights(
-#'   discount_rate = 0.035,
-#'   time_horizon = 1,
-#'   first_cycle = FALSE
+#'   discount_rate_ = 0.035,
+#'   time_horizon_ = 1,
+#'   first_cycle_ = FALSE
 #' )
 #' }
-calculate_discounting_weights <- function(discount_rate = 0.035,
-                                          time_horizon,
-                                          first_cycle = FALSE) {
+calculate_discounting_weights <- function(discount_rate_ = 0.035,
+                                          time_horizon_,
+                                          first_cycle_ = FALSE) {
   ## Sanity checks:
 
-  if(discount_rate < 0) {
+  if(discount_rate_ < 0) {
     rlang::abort(message = "The discount rate can not be less than zero")
   }
 
   ## Calculate discount weights:
 
-  v_dw <- if(!first_cycle) {
-    1 / (1 + discount_rate) ^ (0:(time_horizon - 1))
+  v_dw <- if(!first_cycle_) {
+    1 / (1 + discount_rate_) ^ (0:(time_horizon_ - 1))
   } else {
-    1 / (1 + discount_rate) ^ (1:(time_horizon))
+    1 / (1 + discount_rate_) ^ (1:(time_horizon_))
   }
 
   return(v_dw)
