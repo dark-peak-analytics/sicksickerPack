@@ -22,7 +22,7 @@ cycle. Default is FALSE, where the discounting weight corresponding to the
 first cycle is equal to one.}
 }
 \value{
-A numeric vector containing the discounting weights for
+A numeric vector containing the discounting weights.
 }
 \description{
 Calculate the discounting weights that correspond to a defined

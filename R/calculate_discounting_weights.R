@@ -12,7 +12,8 @@
 #' cycle. Default is FALSE, where the discounting weight corresponding to the
 #' first cycle is equal to one.
 #'
-#' @return A numeric vector containing the discounting weights for
+#' @return A numeric vector containing the discounting weights.
+#'
 #' @export
 #'
 #' @examples
