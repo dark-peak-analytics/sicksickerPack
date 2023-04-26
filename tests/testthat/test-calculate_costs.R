@@ -29,10 +29,14 @@ test_that(desc = "costs estimated correctly", {
     discounting_weights_ = c(0.9661836, 0.9335107, 0.901942, 0.871442, 0.841973)
   )
 
-  ## Run test:
+  ## Run tests:
   expect_equal(
     expected_output,
     output,
     tolerance = 0.00001
+  )
+  expect_type(
+    object = output,
+    type = "double"
   )
 })
