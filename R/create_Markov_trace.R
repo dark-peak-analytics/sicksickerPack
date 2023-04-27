@@ -46,35 +46,29 @@ create_Markov_trace <- function(transition_matrix_,
                                 initial_trace_) {
   ## Sanity testing - inputs:
 
-  # confirm inputs are concordant
-  if(all(length(states_nms_) != length(initial_trace_),
-         length(states_nms_) != nrow(transition_matrix_),
-         ncol(transition_matrix_) != nrow(transition_matrix_))) {
-    messages <- paste0(
-      "The rows/columns of the transition matrix are not equal to the number of
-      states' names or the initial model trace."
-    )
-
-    rlang::abort(message = messages)
-  }
   # confirm inputs are of correct type
-  if(class(states_nms_) != "character") {
-    messages <- paste0(
-      "The \"states_nms_\" argument should contain the names of the Markov model
-      states; for example, states_nms_ = c('State A', 'State B')."
+  assertthat::assert_that(
+    is.vector(x = states_nms_, mode = "character"),
+    msg = paste(
+      "The states_nms_ argument is not of class character"
     )
-
-    rlang::abort(message = messages)
-  }
-  if(class(initial_trace_) != "numeric") {
-    messages <- paste0(
-      "The \"initial_trace_\" argument should define the states' occupancy in
-      the first cycle of the model; for example, if the model had two states,
-      then initial_trace_ = c(0.8, 0.2)."
+  )
+  assertthat::assert_that(
+    is.vector(x = initial_trace_, mode = "numeric"),
+    msg = paste(
+      "The initial_trace_ argument is not of class numeric"
     )
-
-    rlang::abort(message = messages)
-  }
+  )
+  # confirm inputs are concordant
+  assertthat::assert_that(
+    all(length(states_nms_) == length(initial_trace_),
+        length(states_nms_) == nrow(transition_matrix_),
+        ncol(transition_matrix_) == nrow(transition_matrix_)),
+    msg = paste(
+      "The rows/columns of the transition matrix are not equal to the number",
+      "of states' names or the initial model trace."
+    )
+  )
 
   ## Markov trace:
 

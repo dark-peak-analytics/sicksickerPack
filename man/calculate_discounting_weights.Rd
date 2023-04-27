@@ -2,7 +2,7 @@
 % Please edit documentation in R/calculate_discounting_weights.R
 \name{calculate_discounting_weights}
 \alias{calculate_discounting_weights}
-\title{Calculate discounting weights}
+\title{Calculate Discounting Weights}
 \usage{
 calculate_discounting_weights(
   discount_rate_ = 0.035,

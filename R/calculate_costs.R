@@ -38,6 +38,64 @@
 calculate_costs <- function(Markov_trace_,
                             costs_,
                             discounting_weights_) {
+  ## Sanity checks - inputs:
+
+  # confirm no missing values in values passed to each argument
+  assertthat::assert_that(
+    assertthat::noNA(Markov_trace_),
+    msg = "The object passed to the Markov_trace_ argument contains one or more
+    missing value(s)"
+  )
+  assertthat::assert_that(
+    assertthat::noNA(costs_),
+    msg = "The object passed to the costs_ argument contains one or more missing
+    value(s)"
+  )
+  assertthat::assert_that(
+    assertthat::noNA(discounting_weights_),
+    msg = "The object passed to the discounting_weights_ arguments contains one
+    or more missing value(s)"
+  )
+  # ensure passed objects are of the correct type/class
+  assertthat::assert_that(
+    any(is.matrix(Markov_trace_), is.array(Markov_trace_)),
+    msg = "The object passed to the Markov_trace_ argument is not of class
+    matrix/array"
+  )
+  assertthat::assert_that(
+    is.numeric(costs_),
+    msg = "The object passed to the costs_ argument is not of class numeric"
+  )
+  assertthat::assert_that(
+    is.numeric(discounting_weights_),
+    msg = "The object passed to the discounting_weights_ argument is not of
+    class numeric"
+  )
+  # confirm all costs are positive
+  assertthat::assert_that(
+    all(costs_ >= 0),
+    msg = "The object passed to the costs_ argument contains one or more
+    negative value(s)"
+  )
+  # ensure discount rates are more than 0 and less than or equal to 1
+  assertthat::assert_that(
+    all(discounting_weights_ > 0, discounting_weights_ <= 1),
+    msg = "The object passed to the discounting_weights_ argument contains one
+    or more negative value(s) or value(s) more than 1"
+  )
+  # ensure inputs were of appropriate dimensions
+  assertthat::assert_that(
+    length(costs_) == dim(Markov_trace_)[2],
+    msg = "The number of values in the vector passed to the costs_ argument is
+    unequal to the number of states in the Markov_trace_ object"
+  )
+  assertthat::assert_that(
+    length(discounting_weights_) == dim(Markov_trace_)[1],
+    msg = "The number of values in the vector passed to the discounting_weights_
+    argument is unequal to the number of cycles in the Markov_trace_ object"
+  )
+
+  ## Calculate costs:
 
   costs <- Markov_trace_ %*% costs_
   discounted_costs <- costs * discounting_weights_
