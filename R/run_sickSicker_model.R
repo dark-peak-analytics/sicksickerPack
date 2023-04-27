@@ -153,14 +153,11 @@ run_sickSicker_model <- function(
   total_e_trt    <- sum(v_E_trt)
 
   ## Prepare results:
-  ICER <- (total_c_no_trt - total_c_trt) / (total_e_no_trt - total_e_trt)
-
   results <- c(
-    "Cost - no treatment"  = total_c_no_trt,
-    "Cost - treatment"     = total_c_trt,
-    "QALYs - no treatment" = total_e_no_trt,
-    "QALYs - treatment"    = total_e_trt,
-    "ICER" = ICER
+    "Cost_no_treatment"  = total_c_no_trt,
+    "Cost_treatment"     = total_c_trt,
+    "QALYs_no_treatment" = total_e_no_trt,
+    "QALYs_treatment"    = total_e_trt
   )
 
   return(results)

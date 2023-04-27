@@ -20,4 +20,14 @@ test_that(desc = "discounting weights calculated correctly", {
     discount_rate = -0.1,
     time_horizon = 1
   ))
+  expect_vector(
+    object = calculate_discounting_weights(time_horizon = 1),
+    ptype = numeric(),
+    size = 1
+  )
+  expect_vector(
+    object = calculate_discounting_weights(time_horizon = 5),
+    ptype = numeric(),
+    size = 5
+  )
 })

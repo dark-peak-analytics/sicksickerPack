@@ -35,4 +35,8 @@ test_that(desc = "QALYs estimated correctly", {
     output,
     tolerance = 0.00001
   )
+  expect_type(
+    object = output,
+    type = "double"
+  )
 })

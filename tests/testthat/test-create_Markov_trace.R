@@ -40,4 +40,8 @@ test_that(desc = "Markov trace defined correctly", {
     output,
     tolerance = 0.00001
   )
+  expect_type(
+    object = output,
+    type = "double"
+  )
 })
