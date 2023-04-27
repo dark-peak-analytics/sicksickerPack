@@ -1,11 +1,16 @@
 Package: sicksickerPack
-Title: What the Package Does (One Line, Title Case)
+Title: Example R package for the Sick Sicker Model.
 Version: 0.0.0.9000
-Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+Authors@R: c(
+    person("Robert", "Smith",, "rsmith@darkpeakanalytics.com", role = c("aut"),
+           comment = c(ORCID = "0000-0003-0245-3217")),
+    person("Wael", "Mohammed",, "wmohammed@darkpeakanalytics.com", role = c("aut","cre"),
+           comment = c(ORCID = "0000-0003-0370-4903"))
+  )
+Maintainer: <rsmith@darkpeakanalytics.com>
+Description: Example package to demonstrate the value of creating models as R packages and the process of translating a simple model into an R package.
 License: MIT + file LICENSE
+URL: https://darkpeakanalytics.com/
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
