@@ -33,25 +33,32 @@ calculate_discounting_weights <- function(discount_rate_ = 0.035,
   # ensure discount_rate_ is a positive double
   assertthat::assert_that(
     assertthat::is.number(discount_rate_),
-    msg = "The object passed to the discount_rate_ argument is not of class
-    numeric"
+    msg = paste(
+      "The object passed to the discount_rate_ argument is not of class numeric"
+    )
   )
   assertthat::assert_that(
     all(discount_rate_ > 0, discount_rate_ < 1),
-    msg = "The object passed to the discount_rate_ argument is less than zero or
-    more than 1"
+    msg = paste(
+      "The object passed to the discount_rate_ argument is less than zero or",
+      "more than 1"
+    )
   )
   # confirm time_horizon_ is numeric of length 1
   assertthat::assert_that(
     assertthat::is.count(time_horizon_),
-    msg = "The object passed to the time_horizon_ argument is not a positive
-    scalar"
+    msg = paste(
+      "The object passed to the time_horizon_ argument is not a positive",
+      "integer"
+    )
   )
   # ensure the object passed to argument first_cycle_ is of class logical
   assertthat::assert_that(
     assertthat::is.flag(first_cycle_),
-    msg = "The object passed to the first_cycle_ argument is not a scalar of
-    class logical"
+    msg = paste(
+      "The object passed to the first_cycle_ argument is not a logical; please",
+      "use TRUE or FALSE, T or F, only"
+    )
   )
 
   ## Calculate discount weights:

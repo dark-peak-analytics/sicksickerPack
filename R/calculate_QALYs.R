@@ -42,58 +42,64 @@ calculate_QALYs <- function(Markov_trace_,
   ## Sanity checks - inputs:
 
   # confirm no missing values in values passed to each argument
-  assertthat::assert_that(
-    assertthat::noNA(Markov_trace_),
-    msg = "The object passed to the Markov_trace_ argument contains one or more
-    missing value(s)"
-  )
-  assertthat::assert_that(
-    assertthat::noNA(utilities_),
-    msg = "The object passed to the utilities_ argument contains one or more missing
-    value(s)"
-  )
-  assertthat::assert_that(
-    assertthat::noNA(discounting_weights_),
-    msg = "The object passed to the discounting_weights_ arguments contains one
-    or more missing value(s)"
-  )
+  for(x in c("discounting_weights_", "Markov_trace_", "utilities_")) {
+    assertthat::assert_that(
+      assertthat::noNA(get(x)),
+      msg = paste(
+        "The object passed to the",
+        x,
+        "argument contains one or more missing value(s)"
+      )
+    )
+  }
   # ensure passed objects are of the correct type/class
   assertthat::assert_that(
     any(is.matrix(Markov_trace_), is.array(Markov_trace_)),
-    msg = "The object passed to the Markov_trace_ argument is not of class
-    matrix/array"
+    msg = paste(
+      "The object passed to the Markov_trace_ argument is not of class",
+      "matrix/array"
+    )
   )
-  assertthat::assert_that(
-    is.numeric(utilities_),
-    msg = "The object passed to the utilities_ argument is not of class numeric"
-  )
-  assertthat::assert_that(
-    is.numeric(discounting_weights_),
-    msg = "The object passed to the discounting_weights_ argument is not of
-    class numeric"
-  )
+  for(x in c("utilities_", "discounting_weights_")) {
+    assertthat::assert_that(
+      assertthat::noNA(get(x)),
+      msg = paste(
+        "The object passed to the",
+        x,
+        "argument is not of class numeric"
+      )
+    )
+  }
   # confirm all utilities_ are 1 or less
   assertthat::assert_that(
     all(utilities_ <= 1),
-    msg = "The object passed to the utilities_ argument contains one or more
-    value(s) more than 1"
+    msg = paste(
+      "The object passed to the utilities_ argument contains one or more",
+      "value(s) more than 1"
+    )
   )
   # ensure discount rates are more than 0 and less than or equal to 1
   assertthat::assert_that(
     all(discounting_weights_ > 0, discounting_weights_ <= 1),
-    msg = "The object passed to the discounting_weights_ argument contains one
-    or more negative value(s) or value(s) more than 1"
+    msg = paste(
+      "The object passed to the discounting_weights_ argument contains one or",
+      "more negative value(s) or value(s) more than 1"
+    )
   )
   # ensure inputs were of appropriate dimensions
   assertthat::assert_that(
     length(utilities_) == dim(Markov_trace_)[2],
-    msg = "The number of values in the vector passed to the utilities_ argument
-    is unequal to the number of states in the Markov_trace_ object"
+    msg = paste(
+      "The number of values in the vector passed to the utilities_ argument is",
+      "unequal to the number of states in the Markov_trace_ object"
+    )
   )
   assertthat::assert_that(
     length(discounting_weights_) == dim(Markov_trace_)[1],
-    msg = "The number of values in the vector passed to the discounting_weights_
-    argument is unequal to the number of cycles in the Markov_trace_ object"
+    msg = paste(
+      "The number of values in the vector passed to the discounting_weights_",
+      "argument is unequal to the number of cycles in the Markov_trace_ object"
+    )
   )
 
   ## Calculate QALYs:

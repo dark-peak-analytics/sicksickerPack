@@ -82,7 +82,18 @@ define_transition_matrix <- function(states_nms_,
   # check tranistion_matrix rows add up to 1
   assertthat::assert_that(
     all(round(rowSums(tranistion_matrix), digits = 5) == 1),
-    msg = "Transition probabilities from one or more states do not add up to 1."
+    msg = paste(
+      "Transition probabilities from the",
+      sub(
+        pattern = ",([^,]*)$",
+        replacement = " &\\1",
+        paste(
+          which(round(rowSums(tranistion_matrix), digits = 5) != 1) |> names(),
+          collapse = ", "
+        )
+      ),
+      "state(s) do not add up to 1."
+    )
   )
 
   return(tranistion_matrix)

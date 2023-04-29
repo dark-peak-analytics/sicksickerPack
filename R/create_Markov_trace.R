@@ -65,8 +65,8 @@ create_Markov_trace <- function(transition_matrix_,
         length(states_nms_) == nrow(transition_matrix_),
         ncol(transition_matrix_) == nrow(transition_matrix_)),
     msg = paste(
-      "The rows/columns of the transition matrix are not equal to the number",
-      "of states' names or the initial model trace."
+      "The number of states in the trace or transition matrix do not match the",
+      "number of named states"
     )
   )
 
