@@ -4,7 +4,7 @@
 #'
 #' @param params_ List containing the model parameters. This list should contain
 #' the following objects:
-#' \describe
+#' \describe{
 #'  \item{age_init_}{Age at baseline, \code{default = 25}}
 #'  \item{age_max_}{Maximum age of follow up, \code{default = 55}}
 #'  \item{discount_rate_}{Discount rate for costs and QALYs}
@@ -24,6 +24,7 @@
 #'  \item{u_S2}{Utility when sicker}
 #'  \item{u_D}{Utility when dead}
 #'  \item{u_Trt}{Utility when being treated}
+#' }
 #' @param source_url_ String identifying the Uniform Resource Locator (URL)
 #' for the remote (cloud) storage where the function could access a version of
 #' the data expected in the object passed to the \code{params_} argument.

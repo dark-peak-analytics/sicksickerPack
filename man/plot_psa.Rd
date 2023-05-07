@@ -43,12 +43,13 @@ in the PSA data table.}
 }
 \value{
 A list containing the following elements
-\describe
+\describe{
 \item{CE table}{Cost-Effectiveness Table}
 \item{CE plane}{Cost-Effectiveness Plane}
 \item{CEAC}{Cost-Effectiveness Acceptability Curve}
 \item{CEAF}{Cost-Effectiveness Acceptability Frontier Plot}
 \item{EVPI}{Expected Value of Perfect Information Plot}
+}
 }
 \description{
 Draw plots using the results from the Probabilistic Sensitivity
