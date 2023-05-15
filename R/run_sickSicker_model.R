@@ -92,7 +92,7 @@ run_sickSicker_model <- function(
                  is.null(source_url_),
                  is.null(source_path_),
                  is.null(source_credentials_))) {
-    # confirm params_ is a list or NULL if it was to be passed remotely
+    # confirm params_ is a list
     assertthat::assert_that(
       is.list(params_),
       msg = paste(
@@ -101,11 +101,13 @@ run_sickSicker_model <- function(
     )
   } else {
     assertthat::assert_that(
-      TRUE,
+      FALSE,
       msg = paste(
-        "Please either pass locally stored data to the 'params_' argument or",
-        "the required data to the 'source_url_', 'source_path_', and",
-        "'source_credentials_' arguments to retrieve remotely stored data"
+        "Conflicting arguments detected! Please either pass locally stored",
+        "data to the 'params_' argument or remote server/API information to",
+        "the 'source_url_', 'source_path_', and 'source_credentials_'",
+        "arguments to retrieve remotely stored data. Passing arguments in any",
+        "other configuration is prohibited."
       )
     )
   }
@@ -113,10 +115,20 @@ run_sickSicker_model <- function(
   ## Grab model parameters if not passed to the function:
 
   params <- if(is.null(params_)) {
-    get_model_params_(
+    temp_params <- get_model_params_(
       source_url_ = source_url_,
       source_path_ = source_path_,
       source_credentials_ = source_credentials_)
+
+    # confirm temp_params is a list
+    assertthat::assert_that(
+      is.list(temp_params),
+      msg = paste(
+        "The objects retrieved from the remote server/API is not a list"
+      )
+    )
+
+    temp_params
   } else {
     params_
   }

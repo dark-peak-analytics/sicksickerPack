@@ -45,7 +45,7 @@ get_model_params_ <- function(source_url_,
   }
 
   hosted_data <- if(source_credentials_ != "") {
-    httr::GET(
+    response <- httr::GET(
       url = paste0(
         ## URL to the API:
         source_url_,
@@ -58,11 +58,23 @@ get_model_params_ <- function(source_url_,
         ## the API key is passed via a header we call key:
         key = source_credentials_
       )
-    ) |>
+    )
+    ## Check for errors:
+    if(httr::http_error(response)) {
+      rlang::abort(
+        message = paste(
+          "Error connecting to the server/API or the path/endpoint",
+          "therewithin. Please check the provided values passed to the",
+          "source_url_, source_path_ and source_credentials_ argumnets and try",
+          "again."
+        )
+      )
+    }
       ## process returned data:
+    response |>
       httr::content()
   } else {
-    httr::GET(
+    response <- httr::GET(
       url = paste0(
         ## URL to the API:
         source_url_,
@@ -70,8 +82,21 @@ get_model_params_ <- function(source_url_,
         ## path for the API endpoint within the API URL:
         source_path_
       )
-    ) |>
-      ## process returned data:
+    )
+
+    ## Check for errors:
+    if(httr::http_error(response)) {
+      rlang::abort(
+        message = paste(
+          "Error connecting to the server/API or the path/endpoint",
+          "therewithin. Please check the provided values passed to the",
+          "source_url_, source_path_ and source_credentials_ argumnets and try",
+          "again."
+        )
+      )
+    }
+    ## process returned data:
+    response |>
       httr::content()
   }
 

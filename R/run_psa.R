@@ -171,19 +171,37 @@ run_psa <- function(model_func_ = sicksickerPack::run_sickSicker_model,
       source_credentials_ = source_credentials_
     )
 
+    # ensure remotely stored object is a list
+    assertthat::assert_that(
+      is.list(remote_data),
+      msg = paste(
+        "The object retrieved from the remote server/API is not a list"
+      )
+    )
+    # confirm (cloud) psa_params_names and psa_params_dists are strings
+    for (x in c("psa_params_names", "psa_params_dists")) {
+      assertthat::assert_that(
+        is.list(x = get(x, pos = remote_data)),
+        msg = paste(
+          "The objects stored remotely as", x, "is not a list"
+        )
+      )
+    }
+
     psa_params_names <- remote_data$psa_params_names
     psa_params_dists <- remote_data$psa_params_dists
     psa_params_dists_args <- remote_data$psa_params_dists_args
   } else {
     assertthat::assert_that(
-      TRUE,
+      FALSE,
       msg = paste(
-        "To perform PSA using locally stored data, pass the appropriate",
-        "objects to the 'psa_params_names_', 'psa_params_dists_', and",
-        "'psa_params_dists_args_' arguments; otherwise, provide the required",
-        "information to the 'source_url_', 'source_path_', and",
-        "'source_credentials_' arguments for the function to retrieve the PSA",
-        "data from the cloud."
+        "Conflicting arguments detected! To perform PSA using locally stored",
+        "data, pass the appropriate objects to the 'psa_params_names_',",
+        "'psa_params_dists_', and 'psa_params_dists_args_' arguments;",
+        "otherwise, provide the required server/API information to the",
+        "'source_url_', 'source_path_', and 'source_credentials_' arguments to",
+        "retrieve PSA arguments from the cloud. Passing arguments in any other",
+        "configuration is prohibited."
       )
     )
   }
