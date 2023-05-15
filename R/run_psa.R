@@ -29,8 +29,8 @@
 #' of the API endpoint which returns the data of interest. The `source_path_`
 #' should not include a preceding forward-slash (`/`).
 #' @param source_credentials_ String identifying the key required to access the
-#' \code{source_url_}. Pass an empty string (`""`) if the source does not
-#' require a key, password, or other credentials.
+#' `source_url_`. Pass an empty string (`""`) if the source does not require a
+#' key, password, or other credentials.
 #'
 #' @return A data table (dataframe) containing the results from the PSA.
 #'
