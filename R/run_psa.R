@@ -111,15 +111,14 @@ run_psa <- function(model_func_ = sicksickerPack::run_sickSicker_model,
       "loaded packages"
     )
   )
-  # assert "model_func_args_" and psa_params_dists_args_ are of type list
-  for (x in c("model_func_args_", "psa_params_dists_args_")) {
-    assertthat::assert_that(
-      any(is.list(x = get(x)), is.null(x = get(x))),
-      msg = paste(
-        "The object passed to the", x, "argument is not a list or not NULL"
-      )
+  # assert "model_func_args_" are of type list, if not NULL
+  assertthat::assert_that(
+    any(is.list(model_func_args_), is.null(model_func_args_)),
+    msg = paste(
+      "The object passed to the 'model_func_args_' argument is not a list or",
+      "not NULL"
     )
-  }
+  )
   # ensure that the user supplied remote location and credentials
   if(all(is.null(source_url_),
          is.null(source_path_),
