@@ -51,8 +51,8 @@ of the API endpoint which returns the data of interest. The \code{source_path_}
 should not include a preceding forward-slash (\code{/}).}
 
 \item{source_credentials_}{String identifying the key required to access the
-\code{source_url_}. Pass an empty string (\code{""}) if the source does not
-require a key, password, or other credentials.}
+\code{source_url_}. Pass an empty string (\code{""}) if the source does not require a
+key, password, or other credentials.}
 }
 \value{
 A data table (dataframe) containing the results from the PSA.

@@ -46,7 +46,7 @@
 #' passing the URL or Application Programming Interface (API) address, path and
 #' any required credentials to the `source_url_`, `source_path_`, and
 #' `source_credentials_` arguments. When required, this function calls the
-#' \code{\link{get_model_params_}} function to retrieve
+#' \code{\link{get_model_params_}} function to retrieve remote data.
 #' See the examples section for a demo code.
 #'
 #' @export
@@ -132,9 +132,9 @@ run_sickSicker_model <- function(
       Strategies = c("No Treatment", "Treatment")
 
       # time horizon, number of cycles
-      time_horizon = age_max_ - age_init_
+      n_t = age_max_ - age_init_
       # the 4 states of the model: Healthy (H), Sick (S1), Sicker (S2), Dead (D)
-      states_count  <- c("H", "S1", "S2", "D")
+      v_n  <- c("H", "S1", "S2", "D")
 
       # rate of death in healthy
       r_HD    <- - log(1 - p_HD)
@@ -159,15 +159,15 @@ run_sickSicker_model <- function(
 
       ## Calculate the discount weight for each cycle:
 
-      discounting_weights <- calculate_discounting_weights(
+      v_dw <- calculate_discounting_weights(
         discount_rate_ = discount_rate_,
-        time_horizon_ = time_horizon,
+        time_horizon_ = n_t,
         first_cycle_ = TRUE)
 
       ## Define the model's transition matirix:
 
-      transition_matrix <- define_transition_matrix(
-        states_nms_ = states_count,
+      m_P <- define_transition_matrix(
+        states_nms_ = v_n,
         tranistion_probs_ = c(
           1 - (p_HS1 + p_HD),                        p_HS1,         0,  p_HD,
           p_S1H,              1 - (p_S1H + p_S1S2 + p_S1D),    p_S1S2, p_S1D,
@@ -178,49 +178,49 @@ run_sickSicker_model <- function(
 
       ## Create the model's Markov trace:
 
-      Markov_trace <- create_Markov_trace(
-        transition_matrix_ = transition_matrix,
-        time_horizon_ = time_horizon,
-        states_nms_ = states_count,
+      m_TR <- create_Markov_trace(
+        transition_matrix_ = m_P,
+        time_horizon_ = n_t,
+        states_nms_ = v_n,
         initial_trace_ = initial_trace
       )
 
       ## Calculate costs:
 
       v_C_no_trt <- calculate_costs(
-        Markov_trace_ = Markov_trace,
+        Markov_trace_ = m_TR,
         costs_ = c_no_trt,
-        discounting_weights_ = discounting_weights
+        discounting_weights_ = v_dw
       )
       v_C_trt <- calculate_costs(
-        Markov_trace_ = Markov_trace,
+        Markov_trace_ = m_TR,
         costs_ = c_trt,
-        discounting_weights_ = discounting_weights
+        discounting_weights_ = v_dw
       )
-      total_c_no_trt <- sum(v_C_no_trt)
-      total_c_trt    <- sum(v_C_trt)
+      tc_no_trt  <- sum(v_C_no_trt)
+      tc_trt     <- sum(v_C_trt)
 
       ## Calculate QALYs:
 
       v_E_no_trt <- calculate_QALYs(
-        Markov_trace_ = Markov_trace,
+        Markov_trace_ = m_TR,
         utilities_ = u_no_trt,
-        discounting_weights_ = discounting_weights
+        discounting_weights_ = v_dw
       )
       v_E_trt <- calculate_QALYs(
-        Markov_trace_ = Markov_trace,
+        Markov_trace_ = m_TR,
         utilities_ = u_trt,
-        discounting_weights_ = discounting_weights
+        discounting_weights_ = v_dw
       )
-      total_e_no_trt <- sum(v_E_no_trt)
-      total_e_trt    <- sum(v_E_trt)
+      te_no_trt <- sum(v_E_no_trt)
+      te_trt    <- sum(v_E_trt)
 
       ## Prepare results:
       results <- c(
-        "Cost_no_treatment"  = total_c_no_trt,
-        "Cost_treatment"     = total_c_trt,
-        "QALYs_no_treatment" = total_e_no_trt,
-        "QALYs_treatment"    = total_e_trt
+        "Cost_no_treatment"  = tc_no_trt ,
+        "Cost_treatment"     = tc_trt ,
+        "QALYs_no_treatment" = te_no_trt,
+        "QALYs_treatment"    = te_trt
       )
 
       return(results)

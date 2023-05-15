@@ -8,15 +8,18 @@ get_model_params_(source_url_, source_path_, source_credentials_)
 }
 \arguments{
 \item{source_url_}{String identifying the Uniform Resource Locator (URL)
-for the remote (cloud) storage where the target data is stored.}
+for the remote (cloud) storage where the target data is stored. The
+\code{source_url_} should not include a trailing forward-slash (\code{/}).}
 
 \item{source_path_}{String identifying the path of the data within the URL
 passed to the \code{source_url_} argument. If the URL passed to the \code{source_url_}
 argument is for an API, then the string passed to this argument is the name
-of the API endpoint which returns the data of interest.}
+of the API endpoint which returns the data of interest. The \code{source_path_}
+should not include a preceding forward-slash (\code{/}).}
 
 \item{source_credentials_}{String identifying the key required to access the
-\code{source_url_} or the endpoint identified by the \code{source_path_} argument.}
+\code{source_url_}. Pass an empty string (\code{""}) if the source does not require a
+key, password, or other credentials.}
 }
 \value{
 An object, likely a data table (dataframe) but depends on the type of
