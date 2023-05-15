@@ -2,7 +2,7 @@
 % Please edit documentation in R/calculate_QALYs.R
 \name{calculate_QALYs}
 \alias{calculate_QALYs}
-\title{Calculate QALYs}
+\title{Calculate Quality Adjusted Life Years (QALYs)}
 \usage{
 calculate_QALYs(Markov_trace_, utilities_, discounting_weights_)
 }
@@ -21,8 +21,8 @@ A numeric vector containing the QALYs accrued over a Markov model
 time horizon, for each state.
 }
 \description{
-Calculate the QALYs associated with certain states in a Markov
-model.
+Calculate the Quality Adjusted Life Years (QALYs) associated
+with certain states in a Markov model.
 }
 \examples{
 \dontrun{

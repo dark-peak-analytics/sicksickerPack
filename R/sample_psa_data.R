@@ -2,7 +2,7 @@
 #'
 #' @description A general purposes function to generate Probabilistic
 #' Sensitivity Analysis (PSA) parameters' configurations. This function allows
-#' sampling from any distribution supported by the \code{base} and truncnorm
+#' sampling from any distribution supported by the `base` and `truncnorm`
 #' packages - user supplied distributions will be checked against available
 #' functions.
 #'
@@ -10,11 +10,10 @@
 #' names of the parameters for which PSA configurations will be sampled.
 #' @param psa_params_dists_ String vector of length one or more defining the
 #' names of the distributions of each of the corresponding to the PSA parameters
-#' named in the vector passed \code{psa_params_names_}.
+#' named in the vector passed `psa_params_names_`.
 #' @param psa_params_dists_args_ List of lists containing named numeric scalar
 #' representing the arguments to be passed to the corresponding PSA
-#' distributions named in the vector passed to the \code{psa_params_dists_}
-#' argument.
+#' distributions named in the vector passed to the `psa_params_dists_` argument.
 #' @param n_sim_ Numeric scalar setting the number of parameter-configurations
 #' to be sampled for PSA purposes.
 #'

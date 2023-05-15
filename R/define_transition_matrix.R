@@ -6,11 +6,11 @@
 #' @param states_nms_ A character vector containing the names of the states of a
 #' Markov model.
 #' @param tranistion_probs_ A numeric vector containing the transition
-#' probabilities of length \code{n x n}, where \code{n} is the length of, number
-#' of names in, the \code{states_nms_} vector.
+#' probabilities of length `n x n`, where `n` is the length of, number of names
+#' in, the `states_nms_` vector.
 #'
-#' @return An \code{n x n}, where \code{n} is the number of states in an STM
-#' model, containing the transition probabilities between the model states.
+#' @return An `n x n`, where `n` is the number of states in an STM model,
+#' containing the transition probabilities between the model states.
 #'
 #' @export
 #'

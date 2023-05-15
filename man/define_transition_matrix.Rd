@@ -11,12 +11,12 @@ define_transition_matrix(states_nms_, tranistion_probs_)
 Markov model.}
 
 \item{tranistion_probs_}{A numeric vector containing the transition
-probabilities of length \code{n x n}, where \code{n} is the length of, number
-of names in, the \code{states_nms_} vector.}
+probabilities of length \verb{n x n}, where \code{n} is the length of, number of names
+in, the \code{states_nms_} vector.}
 }
 \value{
-An \code{n x n}, where \code{n} is the number of states in an STM
-model, containing the transition probabilities between the model states.
+An \verb{n x n}, where \code{n} is the number of states in an STM model,
+containing the transition probabilities between the model states.
 }
 \description{
 Define the transition matrix of a State-Transition Markov (STM)

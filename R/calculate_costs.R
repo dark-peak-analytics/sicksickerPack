@@ -1,4 +1,4 @@
-#' Calculate costs
+#' Calculate Costs
 #'
 #' @description Calculate the costs associated with certain states in a Markov
 #' model.

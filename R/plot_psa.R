@@ -10,10 +10,10 @@
 #' @param interventions_ String vector, of length 2 or more, containing the
 #' names of the health technologies under comparison.
 #' @param reference_ String scalar defining which intervention (columns of in
-#' the \code{psa_results_} dataframe) is considered to be the reference
-#' strategy. The default value 1 means that the intervention associated with the
-#' first column in the \code{psa_results_} dataframe is the reference and the
-#' one(s) associated with the other column(s) is(are) the comparators.
+#' the `psa_results_` dataframe) is considered to be the reference strategy. The
+#' default value 1 means that the intervention associated with the first column
+#' in the `psa_results_` dataframe is the reference and the one(s) associated
+#' with the other column(s) is(are) the comparators.
 #' @param threshold_ Numeric scalar, specifying the cost-per-effect or
 #' (cost-per-QALY) to be used in estimating the incremental benefits to be
 #' reported in the cost-effectiveness table.
@@ -39,8 +39,10 @@
 #' @examples
 #' \dontrun{
 #' library(sicksickerPack)
+#'
+#' ## PSA using locally stored data:
 #' PSA_results <- run_psa(
-#'   model_func_ = "run_sickSicker_model",
+#'   model_func_ = sicksickerPack::run_sickSicker_model,
 #'   model_func_args_ = list(
 #'     age_init_ = 25,
 #'     age_max_  = 55,
@@ -52,9 +54,10 @@
 #'     psa_params_dists,
 #'   psa_params_dists_args_ = dummy_sickSickerModel_psa_params$
 #'     psa_params_dists_args,
-#'   n_sim_ = 1e4
+#'   n_sim_ = 2
 #' )
 #'
+#' ## Summarise PSA results:
 #' PSA_plots <- plot_psa(
 #'   psa_results_ = PSA_results,
 #'   interventions_ = c("Status quo", "Treatment"),

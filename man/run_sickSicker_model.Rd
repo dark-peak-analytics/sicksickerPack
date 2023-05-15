@@ -5,7 +5,7 @@
 \title{Run the SickSicker State-Transition Model}
 \usage{
 run_sickSicker_model(
-  params_,
+  params_ = NULL,
   source_url_ = NULL,
   source_path_ = NULL,
   source_credentials_ = NULL
@@ -15,8 +15,8 @@ run_sickSicker_model(
 \item{params_}{List containing the model parameters. This list should contain
 the following objects:
 \describe{
-\item{age_init_}{Age at baseline, \code{default = 25}}
-\item{age_max_}{Maximum age of follow up, \code{default = 55}}
+\item{age_init_}{Age at baseline, default = \code{25}}
+\item{age_max_}{Maximum age of follow up, default = \code{55}}
 \item{discount_rate_}{Discount rate for costs and QALYs}
 \item{p_HD}{Probability to die when healthy}
 \item{p_HS1}{Probability to become sick when healthy}
@@ -41,9 +41,9 @@ for the remote (cloud) storage where the function could access a version of
 the data expected in the object passed to the \code{params_} argument.}
 
 \item{source_path_}{String identifying the path of the data within the URL
-passed to the \code{source_url_} argument. If the URL passed to the
-\code{source_url_} argument is for an API, then the string passed to this
-argument is the name of the API endpoint which returns the data of interest.}
+passed to the \code{source_url_} argument. If the URL passed to the \code{source_url_}
+argument is for an API, then the string passed to this argument is the name
+of the API endpoint which returns the data of interest.}
 
 \item{source_credentials_}{String identifying the key required to access the
 \code{source_url_}.}
@@ -55,16 +55,28 @@ SickSicker model.
 \description{
 Run the SickSicker Markov model.
 }
+\details{
+Users can choose between passing locally stored parameters to the
+\code{params_} argument, as in the first example (below), or remote data by
+passing the URL or Application Programming Interface (API) address, path and
+any required credentials to the \code{source_url_}, \code{source_path_}, and
+\code{source_credentials_} arguments. When required, this function calls the
+\code{\link{get_model_params_}} function to retrieve
+See the examples section for a demo code.
+}
 \examples{
 \dontrun{
 library("sicksickerPack")
+
+## Locally stored data:
 sickSicker_model_results <- run_sickSicker_model(
   params_ = dummy_sickSickerModel_params
 )
+
+## Remotely stored data:
 run_sickSicker_model(
- params_ = NULL,
- source_url_ = "https://sicksickerpack-v7po7ubcwa-nw.a.run.app/",
- source_path_ = "/modelRunParams",
+ source_url_ = "https://sicksickerpack-v7po7ubcwa-nw.a.run.app",
+ source_path_ = "modelRunParams",
  source_credentials_ = "R-HTA_2023"
 )
 }
