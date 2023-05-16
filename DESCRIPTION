@@ -1,5 +1,5 @@
 Package: sicksickerPack
-Title: Example R package for the Sick Sicker Model.
+Title: Example R package for the Sick Sicker Model
 Version: 0.0.0.9000
 Authors@R: c(
     person("Robert", "Smith",, "rsmith@darkpeakanalytics.com", role = c("aut"),
@@ -18,4 +18,12 @@ Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Imports: 
-    assertthat (>= 0.2.1)
+    assertthat (>= 0.2.1),
+    BCEA,
+    httr (>= 1.4.5),
+    purrr (>= 1.0.1),
+    rlang,
+    truncnorm (>= 1.0.9)
+Depends: 
+    R (>= 2.10)
+LazyData: true

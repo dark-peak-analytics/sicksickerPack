@@ -2,7 +2,7 @@
 % Please edit documentation in R/calculate_costs.R
 \name{calculate_costs}
 \alias{calculate_costs}
-\title{Calculate costs}
+\title{Calculate Costs}
 \usage{
 calculate_costs(Markov_trace_, costs_, discounting_weights_)
 }

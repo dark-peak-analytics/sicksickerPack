@@ -1,7 +1,7 @@
-#' Calculate QALYs
+#' Calculate Quality Adjusted Life Years (QALYs)
 #'
-#' @description Calculate the QALYs associated with certain states in a Markov
-#' model.
+#' @description Calculate the Quality Adjusted Life Years (QALYs) associated
+#' with certain states in a Markov model.
 #'
 #' @param Markov_trace_ Numeric matrix representing the Markov trace of the
 #' model.
