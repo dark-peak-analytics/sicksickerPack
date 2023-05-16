@@ -44,15 +44,29 @@ get_model_params_ <- function(source_url_,
     )
   }
 
+  ## Alerting users that remote data is being fetched:
+
+  source_address = paste0(
+    ## URL to the API:
+    source_url_,
+    "/",
+    ## path for the API endpoint within the API URL:
+    source_path_
+  )
+
+  rlang::inform(
+    message = paste(
+      "Connecting to",
+      source_address,
+      "..."
+    )
+  )
+
+  ## Grab remote data:
+
   hosted_data <- if(source_credentials_ != "") {
     response <- httr::GET(
-      url = paste0(
-        ## URL to the API:
-        source_url_,
-        "/",
-        ## path for the API endpoint within the API URL:
-        source_path_
-      ),
+      url = source_address,
       ## pass the API key to the request object:
       config = httr::add_headers(
         ## the API key is passed via a header we call key:
@@ -64,9 +78,8 @@ get_model_params_ <- function(source_url_,
       rlang::abort(
         message = paste(
           "Error connecting to the server/API or the path/endpoint",
-          "therewithin. Please check the provided values passed to the",
-          "source_url_, source_path_ and source_credentials_ argumnets and try",
-          "again."
+          "therewithin. Please check the information passed to the source_url_,",
+          "source_path_ and source_credentials_ argumnets and try again."
         )
       )
     }
@@ -75,13 +88,7 @@ get_model_params_ <- function(source_url_,
       httr::content()
   } else {
     response <- httr::GET(
-      url = paste0(
-        ## URL to the API:
-        source_url_,
-        "/",
-        ## path for the API endpoint within the API URL:
-        source_path_
-      )
+      url = source_address
     )
 
     ## Check for errors:
@@ -89,9 +96,8 @@ get_model_params_ <- function(source_url_,
       rlang::abort(
         message = paste(
           "Error connecting to the server/API or the path/endpoint",
-          "therewithin. Please check the provided values passed to the",
-          "source_url_, source_path_ and source_credentials_ argumnets and try",
-          "again."
+          "therewithin. Please check the information passed to the source_url_,",
+          "source_path_ and source_credentials_ argumnets and try again."
         )
       )
     }

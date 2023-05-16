@@ -3,8 +3,8 @@
 #' @description A generic function that performs Probabilistic Sensitivity
 #' Analysis (PSA) given a decision-analytic model.
 #'
-#' @param model_func_ String scalar naming the function defining the decision
-#' analytic model.
+#' @param model_func_ Function defining the decision analytic model for which
+#' the PSA will be performed.
 #' @param model_func_args_ List of arguments passed to the function named in the
 #' \code{model_func} argument.
 #' @param psa_params_names_ String vector of length one or more defining the

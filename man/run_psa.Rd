@@ -17,8 +17,8 @@ run_psa(
 )
 }
 \arguments{
-\item{model_func_}{String scalar naming the function defining the decision
-analytic model.}
+\item{model_func_}{Function defining the decision analytic model for which
+the PSA will be performed.}
 
 \item{model_func_args_}{List of arguments passed to the function named in the
 \code{model_func} argument.}

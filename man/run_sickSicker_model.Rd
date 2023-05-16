@@ -77,7 +77,7 @@ sickSicker_model_results <- run_sickSicker_model(
 )
 
 ## Remotely stored data:
-run_sickSicker_model(
+sickSicker_model_results <- run_sickSicker_model(
  source_url_ = "https://sicksickerpack-v7po7ubcwa-nw.a.run.app",
  source_path_ = "modelRunParams",
  source_credentials_ = "R-HTA_2023"
