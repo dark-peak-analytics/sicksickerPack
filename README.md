@@ -1,6 +1,6 @@
 # sicksickerPack
 
-This repository houses the sicksickerPack R Package as described in the open access paper:
+This repository houses the case study R package `sicksickerPack` described in the open access paper:
 
 > Smith RA, Mohammed W. and Schneider PP. Packaging cost-effectiveness models in R: A tutorial. Wellcome Open Res 2023
 
@@ -29,10 +29,10 @@ Robert Smith<sup>1,2</sup>, Wael Mohammed<sup>1,2</sup> & Paul Schneider<sup>1,2
 
 ## Installation
 
-Install the development version of the package using the devtools package.
+To test the functionality of this package, install the development version of the package using the devtools package.
 
 ``` r
-remotes::install_github("dark-peak-analytics/sicksickerPack")
+devtools::install_github("dark-peak-analytics/sicksickerPack")
 ```
 
 ## Quick start
@@ -55,7 +55,7 @@ run_sickSicker_model(
 
 ### Probabilistic Model 
 
-Run the probabilistic sick-sicker model with the dummary PSA parameters.
+Run the probabilistic sick-sicker model with the dummy PSA parameters.
 
 ``` r
 run_psa(
