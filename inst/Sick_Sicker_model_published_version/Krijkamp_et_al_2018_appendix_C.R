@@ -131,3 +131,4 @@ table_markov <- data.frame(
 rownames(table_markov) = v.Trt  # name the rows
 colnames(table_markov) = c("Costs", "QALYs","Incremental Costs", "QALYs Gained", "ICER") # name the columns
 table_markov                    # print the table
+
