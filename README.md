@@ -6,7 +6,7 @@ This repository houses the case study R package `sicksickerPack` described in th
 
 # **Packaging cost-effectiveness models in R: A tutorial**
 
-Robert Smith<sup>1,2</sup>, Wael Mohammed<sup>1,2</sup> & Paul Schneider<sup>1,2</sup>
+[Robert Smith](https://www.linkedin.com/in/robert-smith-53b28438)<sup>1,2</sup>, Wael Mohammed<sup>1,2</sup> & Paul Schneider<sup>1,2</sup>
 
 <sup>1</sup> [University of Sheffield](https://www.sheffield.ac.uk/scharr), University of Sheffield, Sheffield, UK   
 <sup>2</sup> [Dark Peak Analytics](https://darkpeakanalytics.com/), Sheffield, UK
