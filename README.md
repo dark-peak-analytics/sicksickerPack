@@ -88,14 +88,14 @@ The project follows a typical R package structure as below
 ├── inst/                 # Package post-installation deployed files
 ├── LICENSE               # License file
 ├── LICENSE.md            # License description file
-├── man/                   # Functions' documentation
+├── man/                  # Functions' documentation
 ├── NAMESPACE            
-├── R/                     # Functions' definitions
+├── R/                    # Functions' definitions
 ├── README.md  
 ├── sicksickerPack.Rproj 
 └── tests                 # Functions' tests
     ├── testtaht.R        # testthat setup script    
-    └── testthat/          # testthat tests' scripts
+    └── testthat/         # testthat tests' scripts
 ```
 
 
