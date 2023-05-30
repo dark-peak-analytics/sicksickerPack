@@ -82,7 +82,10 @@ The project follows a typical R package structure as below
 .
 ├── .gitignore            # Names of files to be ignored by Git
 ├── .Rbuildignore         # Names of files to be ignored by R-CMD
+├── data/                 # Package data files
+├── data-raw/             # Package data-construction files
 ├── DESCRIPTION           # Package description file
+├── inst/                 # Package post-installation deployed files
 ├── LICENSE               # License file
 ├── LICENSE.md            # License description file
 ├── man/                   # Functions' documentation
