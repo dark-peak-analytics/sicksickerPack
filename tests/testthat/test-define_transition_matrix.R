@@ -16,7 +16,7 @@ test_that(desc = "transition matrix defined correctly", {
   ## Define outputs:
   output <- define_transition_matrix(
     states_nms_ = c("H", "S1", "S2", "D"),
-    tranistion_probs_ = c(0.845, 0.15, 0, 0.005,
+    transition_probs_ = c(0.845, 0.15, 0, 0.005,
                           0.5, 0.3800749, 0.105, 0.01492512,
                           0, 0, 0.9511101, 0.04888987,
                           0, 0, 0, 1)
@@ -31,7 +31,7 @@ test_that(desc = "transition matrix defined correctly", {
   expect_error(
     define_transition_matrix(
       states_nms_ = c("H", "S1", "S2", "D"),
-      tranistion_probs_ = c(0, -0.15, 0, 1.15,
+      transition_probs_ = c(0, -0.15, 0, 1.15,
                             0.5, 0.3800749, 0.105, 0.01492512,
                             0, 0, 0.9511101, 0.04888987,
                             0, 0, 0, 1)
@@ -40,7 +40,7 @@ test_that(desc = "transition matrix defined correctly", {
   expect_error(
     define_transition_matrix(
       states_nms_ = c("H", "S1", "S2", "D"),
-      tranistion_probs_ = c(0.845, 0.15, 0, 0.005,
+      transition_probs_ = c(0.845, 0.15, 0, 0.005,
                             0.5, 0.4, 0.105, 0.01492512,
                             0, 0, 0.9511101, 0.04888987,
                             0, 0, 0, 1)

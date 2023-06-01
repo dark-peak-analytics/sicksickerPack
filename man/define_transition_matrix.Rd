@@ -4,13 +4,13 @@
 \alias{define_transition_matrix}
 \title{Define a transition matrix}
 \usage{
-define_transition_matrix(states_nms_, tranistion_probs_)
+define_transition_matrix(states_nms_, transition_probs_)
 }
 \arguments{
 \item{states_nms_}{A character vector containing the names of the states of a
 Markov model.}
 
-\item{tranistion_probs_}{A numeric vector containing the transition
+\item{transition_probs_}{A numeric vector containing the transition
 probabilities of length \verb{n x n}, where \code{n} is the length of, number of names
 in, the \code{states_nms_} vector.}
 }
@@ -27,7 +27,7 @@ Model.
 library("sicksickerPack")
 define_transition_matrix(
   states_nms_ = c("A", "B"),
-  tranistion_probs_ = c(
+  transition_probs_ = c(
     0.2, 0.8, # transitions from state A -> A and A -> B
     0,     1  # transitions from state B -> A and B -> B
   )

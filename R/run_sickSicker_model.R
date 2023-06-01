@@ -180,7 +180,7 @@ run_sickSicker_model <- function(
 
       m_P <- define_transition_matrix(
         states_nms_ = v_n,
-        tranistion_probs_ = c(
+        transition_probs_ = c(
           1 - (p_HS1 + p_HD),                        p_HS1,         0,  p_HD,
           p_S1H,              1 - (p_S1H + p_S1S2 + p_S1D),    p_S1S2, p_S1D,
           0,                                             0, 1 - p_S2D, p_S2D,
