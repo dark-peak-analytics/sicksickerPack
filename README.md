@@ -29,10 +29,19 @@ This repository houses the case study R package `sicksickerPack` described in a 
 
 ## Installation
 
-To test the functionality of this package, install the development version of the package using the devtools package.
+To test the functionality of this package, install the development version of the package using the devtools package. The package has a vignette source file built into an HTML document during installation. However, as highlighted below, users can install the package without building the included vignette.
 
+#### Installation - *_without_* vignette:
 ``` r
 devtools::install_github("dark-peak-analytics/sicksickerPack")
+```
+#### Installation - *_building_* vignette:
+``` r
+devtools::install_github( 
+  repo = "dark-peak-analytics/sicksickerPack",
+  dependencies = TRUE, 
+  build_vignettes = TRUE
+)
 ```
 
 ## Quick start
@@ -93,11 +102,10 @@ The project follows a typical R package structure as below
 ├── R/                    # Functions' definitions
 ├── README.md  
 ├── sicksickerPack.Rproj 
-└── tests                 # Functions' tests
-    ├── testtaht.R        # testthat setup script    
-    └── testthat/         # testthat tests' scripts
+├── tests/                # Functions' tests  
+└── vignettes/            # Vignettes' source files
 ```
 
-
 ## Funding
+
 Rob, Wael & Paul were joint funded by the Wellcome Trust Doctoral Training Centre in Public Health Economics and Decision Science [108903] and the University of Sheffield. They now all work for [Dark Peak Analytics](https://www.darkpeakanalytics.com). Please contact <rasmith3@sheffield.ac.uk> with any queries.
