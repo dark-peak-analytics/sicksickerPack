@@ -102,11 +102,10 @@ The project follows a typical R package structure as below
 ├── R/                    # Functions' definitions
 ├── README.md  
 ├── sicksickerPack.Rproj 
-└── tests                 # Functions' tests
-    ├── testtaht.R        # testthat setup script    
-    └── testthat/         # testthat tests' scripts
+└── tests                 # Functions' tests  
+└── vignettes/            # Vignettes' source files
 ```
 
-
 ## Funding
+
 Rob, Wael & Paul were joint funded by the Wellcome Trust Doctoral Training Centre in Public Health Economics and Decision Science [108903] and the University of Sheffield. They now all work for [Dark Peak Analytics](https://www.darkpeakanalytics.com). Please contact <rasmith3@sheffield.ac.uk> with any queries.
