@@ -102,7 +102,7 @@ The project follows a typical R package structure as below
 ├── R/                    # Functions' definitions
 ├── README.md  
 ├── sicksickerPack.Rproj 
-├── tests                 # Functions' tests  
+├── tests/                # Functions' tests  
 └── vignettes/            # Vignettes' source files
 ```
 
