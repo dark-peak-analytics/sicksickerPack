@@ -29,10 +29,18 @@ This repository houses the case study R package `sicksickerPack` described in th
 
 ## Installation
 
-To test the functionality of this package, install the development version of the package using the devtools package.
+To test the functionality of this package, install the development version of the package (with or without building the package's vignette) using the devtools package.
 
 ``` r
+# Without vignette:
 devtools::install_github("dark-peak-analytics/sicksickerPack")
+
+# With vignette:
+devtools::install_github( 
+  repo = "dark-peak-analytics/sicksickerPack",
+  dependencies = TRUE, 
+  build_vignettes = TRUE
+)
 ```
 
 ## Quick start
