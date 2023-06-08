@@ -1,8 +1,8 @@
 # sicksickerPack
 
-This repository houses the case study R package `sicksickerPack` described in the open access paper:
+This repository houses the case study R package `sicksickerPack` described in a working paper:
 
-> Smith RA, Mohammed W. and Schneider PP. Packaging cost-effectiveness models in R: A tutorial. Wellcome Open Res 2023
+> Smith RA, Mohammed W. and Schneider PP. Packaging cost-effectiveness models in R: A tutorial. [GoogleDoc](https://docs.google.com/document/d/16SXEaW413aQy_xel04MwTUwYlAR4voq4/edit)
 
 # **Packaging cost-effectiveness models in R: A tutorial**
 
