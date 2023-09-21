@@ -2,7 +2,7 @@
 
 This repository houses the case study R package `sicksickerPack` described in a working paper:
 
-> Smith RA, Mohammed W. and Schneider PP. Packaging cost-effectiveness models in R: A tutorial. [GoogleDoc](https://docs.google.com/document/d/16SXEaW413aQy_xel04MwTUwYlAR4voq4/edit)
+> Smith R, Mohammed W and Schneider P. Packaging cost-effectiveness models in R: A tutorial. version 1; peer review: awaiting peer review. Wellcome Open Res 2023, 8:419 [https://doi.org/10.12688/wellcomeopenres.19656.1](https://doi.org/10.12688/wellcomeopenres.19656.1)
 
 # **Packaging cost-effectiveness models in R: A tutorial**
 
